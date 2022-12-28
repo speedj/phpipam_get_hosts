@@ -4,6 +4,7 @@ Aims at synchronizing hosts registered in phpipam with their reservations in a d
 
 Can be called from another script (called periodically by crontab) containing rougly:
 
+```bash
 db=sync_subnets.db # A file containing a phpipam subnet number followed by isc dhcpd file
 phpipam_hosts_cmd=/path_to/phpipam_get_hosts.sh
 dhcp_reload_cmd=/path_to/dhcp-user-reload.sh
@@ -20,5 +21,5 @@ if [ -f "dhcp_needs_reload" ]; then
 	echo "reloading dhcp server"
 	$dhcp_reload_cmd && unlink dhcp_needs_reload
 fi
-
+```
 
